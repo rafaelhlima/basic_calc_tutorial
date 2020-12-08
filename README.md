@@ -6,6 +6,8 @@ This project aims to provide a tutorial for LibreOffice Calc users who want to g
 
 The tutorial starts with a typical "Hello World" example to show how macros are organized and covers aspects that are both related to the Basic Language and how it can be used to communicate with LO Calc.
 
+Ckeck out the [Hello World](./topics/Hello_World.md) topic.
+
 ## Requesting new Topics
 
 If you would like to suggest new topics to be covered in this tutorial, please open as Issue and give a brief description of the topic along with examples that could help create the content.
