@@ -1,6 +1,11 @@
 # Introduction to Macros in LibreOffice Calc
 
-**Disclaimer:** This project is still in its infancy and few topics are ready. Feel free to open Issues to propose topics you would like to see covered in this tutorial.
+---
+:warning: **Disclaimer**
+
+This project is still in its infancy and few topics are ready. Feel free to open Issues to propose topics you would like to see covered in this tutorial.
+
+---
 
 This project aims to provide a tutorial for LibreOffice Calc users who want to get started with writing macros using the Basic language.
 

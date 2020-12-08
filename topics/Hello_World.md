@@ -1,4 +1,4 @@
-# Saying "Hello World" to LibreOffice Calc Macro programming
+# Saying "Hello World" with a Macro on LibreOffice Calc
 
 ## Introduction
 
