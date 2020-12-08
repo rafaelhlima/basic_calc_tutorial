@@ -15,7 +15,7 @@ Keep in mind that we won't get into a lot of details in this example because our
 
 In LibreOffice, macros are organized in Modules. To create your first module, open LibreOffice Calc and create a new file. Then go to **Tools > Macros > Organize Macros > Basic**. You'll be presented with the following dialog.
 
-![Create Module Dialog](./images/Hello_World_01.png)
+![Create Module Dialog](../images/Hello_World_01.png)
 
 In the dialog window, choose the newly created Calc file on the left section named **Macro From**, which in this example is *Untitled 1*, then click **New**. A pop-up dialog will open for you to name the new module. You can use the default name *Module1* or give a different name if you prefer.
 
@@ -23,6 +23,6 @@ In the dialog window, choose the newly created Calc file on the left section nam
 
 After you click **OK** and create the new module, the Basic IDE (Integrated Development Environment) window will show up. The Basic IDE is where you will create and edit your macros.
 
-![LibreOffice Basic IDE](./images/Hello_World_02.png)
+![LibreOffice Basic IDE](../images/Hello_World_02.png)
 
 More text
