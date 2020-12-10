@@ -6,7 +6,7 @@ If you've already read our [Hello World](./Hello_World.md) example, you may have
 
 To understand how macros are organize, let's take a closer look at the *Basic Macros* dialog, which can be opened by going to **Tools > Macros > Organize Macros > Basic**.
 
-![Basic Macro Organization Dialog](../images/Macro_Organization_01.png | width=500)
+<img src="../images/Macro_Organization_01.png" width="500" />
 
 At the highest level we have three *library containers*:
 
