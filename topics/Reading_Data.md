@@ -38,7 +38,7 @@ mySheet = ThisComponent.Sheets(0)
 
 Hence, if we have three sheets in our file, then their indices will range from 0 to 2, as shown below.
 
-[Sheet Indices](../images/Reading_Data_01.png)
+![Sheet Indices](../images/Reading_Data_01.png)
 
 Another approach is to access sheets by their names, as shown in the code below:
 
