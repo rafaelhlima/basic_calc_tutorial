@@ -7,6 +7,7 @@ However, if you already have some programming knowledge, you might be interested
 ## Introductory Topics
 
 [Saying "Hello World" with a Macro on LibreOffice Calc](./topics/Hello_World.md)
+
 [How are Macros organized in LibreOffice?](./topics/Macro_Organization.md)
 
 More topics coming soon!
