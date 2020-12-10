@@ -10,4 +10,6 @@ However, if you already have some programming knowledge, you might be interested
 
 [How are Macros organized in LibreOffice?](./topics/Macro_Organization.md)
 
+[Reading Data from Cells](./topics/Reading_Data.md)
+
 More topics coming soon!
