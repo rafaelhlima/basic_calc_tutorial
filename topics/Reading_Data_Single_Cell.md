@@ -5,7 +5,7 @@ Macros written for LibreOffice Calc often need to read data from spreadsheets to
 1. Access cell objects and...
 2. Read the data stored in these cells.
 
-Here we'll focus on reading values from a single cell. For multiple cells, read the topic [Reading Multiple Cells](../Contents.md).
+Here we'll focus on reading values from a single cell. For multiple cells, read the topic [Reading Multiple Cells](./topics/Reading_Data_Multiple_Cells.md).
 
 ## Introduction
 
