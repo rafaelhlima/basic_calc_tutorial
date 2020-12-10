@@ -65,6 +65,46 @@ This code is a bit more complex that the previous one (that's why I left this as
 
 Do not worry too much if you did not understand all this code. LibreOffice API is a bit complex at first, buth with time you'll get the hang of it. In future topics I'll discuss in more detail how to declare variables and read/write data from/to sheets and cells.
 
+## A line-by-line explanation
+
+Here I'll give a brief explanation of the Basic code we created for the Hello World macro.
+
+```VBA
+Sub HelloWorld
+	'Macro code here
+End Sub
+
+```
+
+In Basic a macro is called a Sub. Hence *Sub* is a reserved word in Basic that states that we are creating a new macro named *HelloWorld*. The macro ends with the combination of words *End Sub*.
+
+```VBA
+Dim oSheet as Object
+Dim oCell as Object
+```
+
+The reserved word *Dim* is used to declare variables and the word *As* precedes the variable type. Here we are creating variables *oSheet* and *oCell*, both of *Object* type.
+
+Note that we could have given any names to these variables, as long as they respect the variable naming conventions used by the Basic language.
+
+```VBA
+oSheet = ThisComponent.getCurrentController.getActiveSheet()
+```
+
+*ThisComponent* is a LibreOffice runtime object that provides access to the currently opened document. The method *getCurrentController* returns the document's controller that gives acces to many aspects of the document. Finally, *getActiveSheet()* returns an Object containing the active sheet, which is stored in the *oSheet* variable.
+
+```VBA
+oCell = oSheet.getCellRangeByName("A1")
+```
+
+Now that we have the active sheet stored in *oSheet*, we can call the method *getCellRangeByName("A1")* to get a Object containing cell *"A1"* and store it into the *oCell* variable.
+
+```VBA
+oCell.setString("Hello World!")
+```
+
+Finally we can use the method *setString()* of the cell object to insert the string "Hello World!" into cell *A1*.
+
 ## Download the Example
 
-You can download the ODF file with both versions of the "Hello World" examples by clicking [here](../ods/Hello_World.ods).
+You can download the ODS file with both versions of the "Hello World" examples by clicking [here](../ods/Hello_World.ods).
