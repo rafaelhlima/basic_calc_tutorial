@@ -175,4 +175,4 @@ After you created an object pointing to a cell, it is time to read the actual da
 - **getString():** returns the value stored in the cell as a string.
 - **getFormula():** if the cell contains a formula, this method returns the formula as a string.
 
-When writing a macro, you might need to know which type of data is stored in a cell using the `getType()` method. To learn more about cell data types, I recommend reading the topic [Dealing with Cell Types](./Data_Types.md).
+When writing a macro, you might need to know which type of data is stored in a cell using the `getType()` method. To learn more about cell data types, I recommend reading the topic [Dealing with Cell Types](./Cell_Types.md).

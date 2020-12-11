@@ -2,7 +2,7 @@
 
 Determining the type of value in a cell is very important to avoid unexpected errors when you run a macro. For example, if your macro performs mathematical operations using values from cells, you might be interested in determining if the cell contains numerical values instead of text.
 
-Bascally, the contents of a cell can be one of four types:
+Basically, the contents of a cell can be one of four types:
 
 1. Empty cell
 2. Numeric value
@@ -37,7 +37,7 @@ Sub PrintCellType
 End Sub
 ```
 
-This macro gets the type of the current cell and prints its type in a message box. The main takeaway in this macro is the use of `com.sun.star.table.CellContentType` to compare the value returned by `getType()`. This method is only available to cell objects, so the macro will not work if you select multiple cells.
+This macro gets the type of the current cell and prints its type in a message box. The main takeaway in this macro is the use of `com.sun.star.table.CellContentType` to compare the value returned by `getType()`. This method is only available for cell objects, so the macro will not work if you select multiple cells.
 
 `CellContentType` is an enumeration that contains only the four values used in the macro. Click [here](https://api.libreoffice.org/docs/idl/ref/CellContentType_8idl.html) to read the official API documentation.
 
@@ -72,14 +72,14 @@ To create the table presented in the image above I used a macro that read all in
 ```VBA
 Sub CheckCellTypes
 	Dim oCell as Object, oCellWrite as Object
-	Dim cType as String
+	Dim cellType as String
 	For i = 1 to 4
 		'Get the cell type as a String
 		oCell = ThisComponent.Sheets(0).GetCellByPosition(0, i)
-		cType = GetCellTypeName(oCell)
+		cellType = GetCellTypeName(oCell)
 		'Write the cell type
 		oCellWrite = ThisComponent.Sheets(0).GetCellByPosition(2, i)
-		oCellWrite.setString(cType)
+		oCellWrite.setString(cellType)
 		'Write the results of getValue()
 		oCellWrite = ThisComponent.Sheets(0).GetCellByPosition(3, i)
 		oCellWrite.setString(oCell.getValue())
