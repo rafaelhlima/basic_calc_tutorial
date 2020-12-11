@@ -160,9 +160,19 @@ End Sub
 
 In this new example we check two possible errors:
 
-- The line `If IsNull(oCell)` verifies if there's anything selected at all. If nothing is selected then the Sub is terminated.
-- The command `oCell.supportsService("com.sun.star.sheet.SheetCell")` checks if the selection is a single cell, i.e. it supports the UNO service *SheetCell*.
+- The line `If IsNull(oCell) Then Exit Sub` verifies if there's anything selected at all. If nothing is selected then the Sub is terminated.
+- The statement `oCell.supportsService("com.sun.star.sheet.SheetCell")` checks if the selection is a single cell, i.e. it supports the UNO service *SheetCell*.
 
-The `supportsService` is very often used in LibreOffice macros to check the context in which the macro is being executed. Because macros are available across all applications (Writer, Calc, Impress, etc), it's important to determine if the macro is being run in the correct application.
+The `supportsService()` method is very often used in LibreOffice macros to check the context in which the macro is being executed. Because macros are available across all applications (Writer, Calc, Impress, etc), it's important to determine if the macro is being run in the correct application.
 
 If this sounds too complicated now, fear not! This aspect of LibreOffice macros will be covered in future topics and with time you'll get used to it.
+
+## Reading the actual Data
+
+After you created an object pointing to a cell, it is time to read the actual data inside the cell. In the examples presented in this topic we used the methods `getString()` and `getValue()` without further explaining their differences. Next I give a brief explanation on the three main methods used to get values from cells:
+
+- **getValue():** returns the numerical value stored in the cell.
+- **getString():** returns the value stored in the cell as a string.
+- **getFormula():** if the cell contains a formula, this method returns the formula as a string.
+
+When writing a macro, you might need to know which type of data is stored in a cell using the `getType()` method. To learn more about cell data types, I recommend reading the topic [Dealing with Cell Types](./Data_Types.md).

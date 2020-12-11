@@ -24,3 +24,10 @@ If you would like to suggest new topics to be covered in this tutorial, please o
 ## Compatibility
 
 All examples were created using LibreOffice 7.0 and were run on a Ubuntu 20.04 machine. However, all examples are supposed to work on Windows and MacOS as well.
+
+## Acknolwedgements
+
+The contents in this tutorial is based on books, blog posts and responses to questions made by users in many forums. I would like to mention two important sources used to prepare this tutorial:
+
+- Andrew Pitonyak's book entitled *OpenOffice.org Macro Information* is a precious source of information and has serve as my main reference in this tutorial. I highly recommend everyone interested in Basic programming to give this book a good read. It also addresses macro writing for other LibreOffice applications, such as Writer, Impress and Draw.
+- Questions answered on Ask LibreOffice about topics related to macro programming. I appreciate the efforts from the LibreOffice community in providing such good answers that can later be used as reference by other users.

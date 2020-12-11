@@ -12,6 +12,8 @@ However, if you already have some programming knowledge, you might be interested
 
 [Reading Data from Single Cells](./topics/Reading_Data_Single_Cell.md)
 
+[Dealing with Cell Data Types](./topics/Data_Types.md)
+
 [Reading Data from Multiple Cells](./topics/Reading_Data_Multiple_Cells.md)
 
 More topics coming soon!
