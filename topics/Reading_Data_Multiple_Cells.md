@@ -54,8 +54,12 @@ End Sub
 
 The macro above counts how many cells in the range *B5:D10* have values greater than 50. To iterate over all cells in the selection we need to use the `getCellByPosition` method. However, note that this method is being applied to the selection instead of the entire sheet. This means that position (0, 0) is actually the first cell in the selection, which in this example is cell *B5*.
 
+![Position of Cells within a Range](../images/Multiple_Cells.png)
+
 ```VBA
+Temp
 ```
 
 ```VBA
+Temp
 ```
