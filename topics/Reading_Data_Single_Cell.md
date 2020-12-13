@@ -9,7 +9,7 @@ Here we'll focus on reading values from a single cell. For multiple cells, read 
 
 ## Introduction
 
-Before reading values in a cell or in multiple cells, we first need to get access to cell objects. If you read the [Hello World](./Hello_World.md) example, you'll remember this part of the code.
+Before reading values from a single cell or from multiple cells, we first need to get access to cell objects. If you read the [Hello World](./Hello_World.md) example you'll remember this part of the code.
 
 ```VBA
 oSheet = ThisComponent.getCurrentController.getActiveSheet()
@@ -17,7 +17,7 @@ oCell = oSheet.getCellRangeByName("A1")
 oCell.setString("Hello World!")
 ```
 
-The first line assigns to *oSheet* the object that gives access to the Active Sheet of the current document. Then we use this object to get access to cell *A1* and store its corresponding object in *oCell*. Finally, in the third line we use the *oCell* object to call the method *setString("Hello World!")* that inputs the string into the cell.
+The first line assigns to `oSheet` the object that gives access to the Active Sheet of the current document. Then we use this object to get access to cell *A1* and store its corresponding object in `oCell`. Finally, in the third line we use the `oCell` object to call the method `setString("Hello World!")` that inputs the string into the cell.
 
 This means that the key to reading/writing contents from/to cells is to first create an object that will grant us access to its properties and methods. In the following sections we'll discuss the many methods that can be used for this purpose.
 
@@ -62,7 +62,7 @@ Sub ReadData
 End Sub
 ```
 
-In this example we are reading the contents of cell *A1* in a sheet named "Balance". Note that here the macro first tests if the file has a sheet with this name before proceeding. This is done with the *hasByName()* method of the sheet object.
+In this example we are reading the contents of cell *A1* in a sheet named "Balance". Note that here the macro first tests if the file has a sheet with this name before proceeding. This is done with the `hasByName()` method of the sheet object.
 
 Similarly, if we are acessing sheets by their index, we should first check if the index exists in the file to avoid unexpected errors. For that, we need to use the `ThisComponent.Sheets.Count` property, which returns the number of sheets in the current document.
 
@@ -71,7 +71,7 @@ Sub ReadData
 	Dim mySheet as Object
 	Dim myCell as Object
 	Dim sheetIdx as Integer
-	'This is the sheet index we want to acess
+	'This is the sheet index we want to access
 	sheetIdx = 2
 	If sheetIdx + 1 <= ThisComponent.Sheets.Count Then
 		mySheet = ThisComponent.Sheets.getByIndex(sheetIdx)
@@ -84,11 +84,11 @@ Sub ReadData
 End Sub
 ```
 
-Note that in this example we use the *getByIndex()* method to get access to a sheet object using its index number.
+Note that in this example we use the `getByIndex()` method to get access to a sheet object using its index number.
 
 ## Getting Access to Cell objects
 
-There are three main ways to get access to cell objetcs. One of them - *getCellRangeByName()* we have used a few times, so we'll start by discussing it. This is a method of sheet objects and is very straightforward to use. We just need to pass on the cell address, e.g. "A1", "D8", "H3", and it will return an object to the corresponding cell.
+There are two main ways to get access to cell objetcs. One of them - `getCellRangeByName()` was used a few times in some examples, so we'll start by discussing it. This is a method of sheet objects and is very straightforward to use. We just need to pass on the cell address, e.g. "A1", "D8", "H3", and it will return an object to the corresponding cell.
 
 As an example, the following macro sums the values in cells "A1" and "A2" and writes the result in cell "A3". This example also introduces some methods used for reading/writing values which we'll discuss later.
 
@@ -104,13 +104,13 @@ End Sub
 
 Keep in mind that here we'll only focus on single cells, however this method can also be used to access multiple cells at once by passing on addresses as "A1:A10".
 
-Another way to access cells is to use the `getCellByPosition(col_number, row_number)` method. Instead of using text addresses, this method uses column and row indices thus treating the sheet as if it were a matrix of values. It is important to note that column and row indices start at zero.
+The second way to access cells is to use the `getCellByPosition(col_number, row_number)` method. Instead of using text addresses, this method uses column and row indices thus treating the sheet as if it were a matrix of values. It is important to note that column and row indices start at zero.
 
 Hence, position (0, 0) corresponds to cell "A1", (0, 1) refers to cell "A2" and address (2, 4) refers to cell "C5".
 
 ![Columns and Rows Addresses](../images/Reading_Data_02.png)
 
-Accessing cells using position values is very useful when you need to iterate over multiple cells. For example, the following macro uses a **For ... Next** loop to sum values from cells "A1" through "A5" and write the result in cell "B1".
+Accessing cells using position values is very useful when you need to iterate over multiple cells. For example, the following macro uses a `For ... Next` loop to sum values from cells "A1" through "A5" and write the result in cell "B1".
 
 ```VBA
 Sub SumRange
@@ -130,3 +130,49 @@ Sub SumRange
 	oCell.setValue(sumResult)
 End Sub
 ```
+
+## Getting Values from the Selected Cell
+
+In some situations you'll want to access the cell that is currently selected in the document. To achieve this you have to use the `ThisComponent.getCurrentSelection()` method, as shown in the example below.
+
+```VBA
+Sub GetCurrentCellValue
+	Dim oCell as Object
+	oCell = ThisComponent.getCurrentSelection()
+	MsgBox "Value in Cell: " & oCell.getValue()
+End Sub
+```
+
+Beware that the code above my fail depending on what is selected in your document. For example, if you have multiple cells selected, you'll get an error message saying that the method `getValue()` does not exist for the object. To fix these issues, see the example below:
+
+```VBA
+Sub GetCurrentCellValue
+	Dim oCell as Object
+	oCell = ThisComponent.getCurrentSelection()
+	'If there's nothing selected, exit the Sub without doing anything
+	If IsNull(oCell) Then Exit Sub
+	'Checks if the selected range is a single cell
+	If oCell.supportsService("com.sun.star.sheet.SheetCell") Then
+		MsgBox "Value in Cell: " & oCell.getValue()
+	End If
+End Sub
+```
+
+In this new example we check two possible errors:
+
+- The line `If IsNull(oCell) Then Exit Sub` verifies if there's anything selected at all. If nothing is selected then the Sub is terminated.
+- The statement `oCell.supportsService("com.sun.star.sheet.SheetCell")` checks if the selection is a single cell, i.e. it supports the UNO service *SheetCell*.
+
+The `supportsService()` method is very often used in LibreOffice macros to check the context in which the macro is being executed. Because macros are available across all applications (Writer, Calc, Impress, etc), it's important to determine if the macro is being run in the correct application.
+
+If this sounds too complicated now, fear not! This aspect of LibreOffice macros will be covered in future topics and with time you'll get used to it.
+
+## Reading the actual Data
+
+After you created an object pointing to a cell, it is time to read the actual data inside the cell. In the examples presented in this topic we used the methods `getString()` and `getValue()` without further explaining their differences. Next I give a brief explanation on the three main methods used to get values from cells:
+
+- **getValue():** returns the numerical value stored in the cell.
+- **getString():** returns the value stored in the cell as a string.
+- **getFormula():** if the cell contains a formula, this method returns the formula as a string.
+
+When writing a macro, you might need to know which type of data is stored in a cell using the `getType()` method. To learn more about cell data types, I recommend reading the topic [Dealing with Cell Types](./Cell_Types.md).
