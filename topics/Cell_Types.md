@@ -67,7 +67,7 @@ One important aspect of reading values from cells is that, regardless of the cur
 
 ![getType Results](../images/Cell_Types_01.png)
 
-To create the table presented in the image above I used a macro that read all input cells and applied the `get` functions to see what was returned. You can check out the code for this macro below:
+To create the table presented in the image above I used a macro that reads all input cells and applies the `get` functions to see what is returned. You can check out the code for this macro below:
 
 ```VBA
 Sub CheckCellTypes

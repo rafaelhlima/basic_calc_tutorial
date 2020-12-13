@@ -31,3 +31,5 @@ The contents in this tutorial are based on books, blog posts and responses to qu
 
 - Andrew Pitonyak's [book](https://www.pitonyak.org/book/) entitled *OpenOffice.org Macros Explained* is a precious source of information and has served as my main reference in this tutorial. I highly recommend everyone interested in Basic programming to give this book a good read. It also addresses macro writing for other LibreOffice applications, such as Writer, Impress, Base and Draw.
 - Questions answered on Ask LibreOffice about topics related to macro programming. I appreciate the efforts from the LibreOffice community in providing such good answers that can later be used as reference by other users.
+
+I also recommend reading Chapter 13 of LibreOffice's [Getting Started Guide](https://nextcloud.documentfoundation.org/s/BqZrc5KpLYao4Ed), which gives a nice overview of how macros are organized, as well as how you can record and run macros.
