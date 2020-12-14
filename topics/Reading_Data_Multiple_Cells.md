@@ -71,7 +71,7 @@ Sub SumCells
 	'Gets the current sheet
 	Dim curSheet as Object
 	curSheet = ThisComponent.getCurrentController.getActiveSheet()
-	'Gets the desider cell range
+	'Gets the desired cell range
 	Dim oRange as Object
 	oRange = curSheet.getCellRangeByName("A1:B3")
 	'Gets the data inside the range

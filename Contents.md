@@ -10,10 +10,26 @@ However, if you already have some programming knowledge, you might be interested
 
 [How are Macros organized in LibreOffice?](./topics/Macro_Organization.md)
 
+[How to Run Macros?](./Contents.md) (To-do)
+
+## The Basic Language
+
+[Declaring Variables](./Contents.md)
+
+[Data Types](./Contents) (To-do)
+
+## Reading and Writing data from Sheets
+
 [Reading Data from Single Cells](./topics/Reading_Data_Single_Cell.md)
 
 [Dealing with Cell Data Types](./topics/Cell_Types.md)
 
 [Reading Data from Multiple Cells](./topics/Reading_Data_Multiple_Cells.md)
 
-More topics coming soon!
+## Working with Dialogs
+
+(To-do)
+
+## Creating Extensions for Calc
+
+(To-do)
